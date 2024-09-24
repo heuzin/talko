@@ -21,7 +21,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`/server/${id}`);
+    router.push(`/servers/${id}`);
   };
 
   return (

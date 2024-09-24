@@ -3,7 +3,9 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
+
+import ModalProvider from "@/components/providers/ModalProvider";
+import ThemeProvider from "@/components/providers/ThemeProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,6 +43,7 @@ export default function RootLayout({
             enableSystem={false}
             storageKey="talko-theme"
           >
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </body>
