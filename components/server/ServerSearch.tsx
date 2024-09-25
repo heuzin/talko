@@ -27,7 +27,7 @@ interface ServerSearchProps {
   }[];
 }
 
-const ServerSearch = ({ data }: ServerSearchProps) => {
+const ServerSearch: React.FC<ServerSearchProps> = ({ data }) => {
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
@@ -83,7 +83,6 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
           <CommandEmpty>No results found.</CommandEmpty>
           {data.map(({ label, type, data }) => {
             if (!data?.length) return null;
-            console.log(data);
 
             return (
               <CommandGroup key={label} heading={label}>
