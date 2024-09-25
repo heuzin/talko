@@ -35,8 +35,8 @@ const formSchema = z.object({
 });
 
 const EditServerModal = () => {
-  const router = useRouter();
   const { isOpen, onClose, type, data } = useModalStore();
+  const router = useRouter();
 
   const isModalOpen = isOpen && type === "editServer";
   const { server } = data;
@@ -66,12 +66,11 @@ const EditServerModal = () => {
       router.refresh();
       onClose();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   const handleClose = () => {
-    form.reset();
     onClose();
   };
 
@@ -84,7 +83,7 @@ const EditServerModal = () => {
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
             Give your server a personality with a name and an image. You can
-            always change it later
+            always change it later.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -113,13 +112,13 @@ const EditServerModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Server name
+                      Server Name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                         placeholder="Enter server name"
+                        className="bg-zinc-300/50 border-0 focus-visible: ring-0 text-black focus-visible:ring-offset-0"
                         {...field}
                       />
                     </FormControl>
@@ -129,7 +128,7 @@ const EditServerModal = () => {
               />
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button variant={"primary"} disabled={isLoading}>
+              <Button disabled={isLoading} variant="primary">
                 Save
               </Button>
             </DialogFooter>
