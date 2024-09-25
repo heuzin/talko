@@ -36,9 +36,7 @@ const roleIconMap = {
 const ServerSidebar: React.FC<ServerSidebarProps> = async ({ serverId }) => {
   const profile = await currentProfile();
 
-  if (!profile) {
-    return redirect("/");
-  }
+  if (!profile) return redirect("/");
 
   const server = await db.server.findUnique({
     where: {
@@ -60,7 +58,7 @@ const ServerSidebar: React.FC<ServerSidebarProps> = async ({ serverId }) => {
       },
     },
   });
-  0;
+
   const textChannels = server?.channels.filter(
     (channel) => channel.type === ChannelType.TEXT
   );
@@ -70,20 +68,19 @@ const ServerSidebar: React.FC<ServerSidebarProps> = async ({ serverId }) => {
   const videoChannels = server?.channels.filter(
     (channel) => channel.type === ChannelType.VIDEO
   );
+
   const members = server?.members.filter(
     (member) => member.profileId !== profile.id
   );
 
-  if (!server) {
-    return redirect("/");
-  }
+  if (!server) return redirect("/");
 
   const role = server.members.find(
     (member) => member.profileId === profile.id
   )?.role;
 
   return (
-    <div className="flex flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5]">
+    <div className="flex flex-col h-full text-primary w-full dark:bg-[#2b2d31] bg-[#f2f3f5]">
       <ServerHeader server={server} role={role} />
       <ScrollArea className="flex-1 px-3">
         <div className="mt-2">
