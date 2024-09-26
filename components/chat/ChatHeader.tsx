@@ -3,7 +3,7 @@ import { Hash, Menu } from "lucide-react";
 
 import MobileToggle from "@/components/MobileToggle";
 import UserAvatar from "@/components/UserAvatar";
-// import { SocketIndicatior } from "@/components/socket-indicatior";
+import SocketIndicatior from "@/components/SocketIndicator";
 // import { ChatVideoButton } from "@/components/chat/chat-video-button";
 
 interface ChatHeaderProps {
@@ -29,10 +29,10 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
         <UserAvatar src={imageUrl} className="h-8 w-8 md:h-8 md:w-8 mr-2" />
       )}
       <p className="font-semibold text-md text-black dark:text-white">{name}</p>
-      {/* <div className="ml-auto flex items-center">
-        {type === "conversation" && <ChatVideoButton />}
+      <div className="ml-auto flex items-center">
+        {/* {type === "conversation" && <ChatVideoButton />} */}
         <SocketIndicatior />
-      </div> */}
+      </div>
     </div>
   );
 };
