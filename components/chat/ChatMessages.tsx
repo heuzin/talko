@@ -91,7 +91,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
                 deleted={message.deleted}
                 timestamp={format(new Date(message.createdAt), DATE_FORMAT)}
                 isUpdated={message.updatedAt !== message.createdAt}
-                socektUrl={socketUrl}
+                socketUrl={socketUrl}
                 socketQuery={socketQuery}
               />
             ))}
