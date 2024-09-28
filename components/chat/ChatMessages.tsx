@@ -9,6 +9,7 @@ import ChatItem from "./ChatItem";
 import ChatWelcome from "./ChatWelcome";
 
 import { useChatQuery } from "@/hooks/useChatQuery";
+import { useChatSocket } from "@/hooks/useChatSocket";
 
 const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
@@ -42,6 +43,8 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
   apiUrl,
 }) => {
   const queryKey = `chat:${chatId}`;
+  const addKey = `chat:${chatId}:messages`;
+  const updateKey = `chat:${chatId}:messages:update`;
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useChatQuery({
@@ -51,6 +54,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
       paramValue,
     });
 
+  useChatSocket({ queryKey, addKey, updateKey });
   if (status === "loading") {
     return (
       <div className="flex flex-col flex-1 justify-center items-center">
