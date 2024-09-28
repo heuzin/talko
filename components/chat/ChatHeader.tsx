@@ -1,10 +1,11 @@
 import React from "react";
-import { Hash, Menu } from "lucide-react";
+import { Hash } from "lucide-react";
 
 import MobileToggle from "@/components/MobileToggle";
 import UserAvatar from "@/components/UserAvatar";
 import SocketIndicatior from "@/components/SocketIndicator";
-// import { ChatVideoButton } from "@/components/chat/chat-video-button";
+
+import ChatVideoButton from "./ChatVideoButton";
 
 interface ChatHeaderProps {
   serverId: string;
@@ -30,7 +31,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
       )}
       <p className="font-semibold text-md text-black dark:text-white">{name}</p>
       <div className="ml-auto flex items-center">
-        {/* {type === "conversation" && <ChatVideoButton />} */}
+        {type === "conversation" && <ChatVideoButton />}
         <SocketIndicatior />
       </div>
     </div>

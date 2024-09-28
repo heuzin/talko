@@ -5,9 +5,11 @@ import { auth } from "@clerk/nextjs/server";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { getOrCreateConversation } from "@/lib/conversation";
+
 import ChatHeader from "@/components/chat/ChatHeader";
 import ChatMessages from "@/components/chat/ChatMessages";
 import ChatInput from "@/components/chat/ChatInput";
+import MediaRoom from "@/components/MediaRoom";
 
 interface MemberIdPageProps {
   params: {
@@ -59,7 +61,7 @@ const MemberIdPage = async ({
         serverId={serverId}
         type="conversation"
       />
-      {/* {video && <MediaRoom chatId={conversation.id} video audio />} */}
+      {video && <MediaRoom chatId={conversation.id} video audio />}
       {!video && (
         <>
           <ChatMessages
