@@ -6,9 +6,8 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { getOrCreateConversation } from "@/lib/conversation";
 import ChatHeader from "@/components/chat/ChatHeader";
-// import { ChatMessages } from "@/components/chat/chat-messages";
-// import { ChatInput } from "@/components/chat/chat-input";
-// import { MediaRoom } from "@/components/media-room";
+import ChatMessages from "@/components/chat/ChatMessages";
+import ChatInput from "@/components/chat/ChatInput";
 
 interface MemberIdPageProps {
   params: {
@@ -60,7 +59,7 @@ const MemberIdPage = async ({
         serverId={serverId}
         type="conversation"
       />
-      {/* {video && <MediaRoom chatId={conversation.id} video audio />}
+      {/* {video && <MediaRoom chatId={conversation.id} video audio />} */}
       {!video && (
         <>
           <ChatMessages
@@ -73,7 +72,7 @@ const MemberIdPage = async ({
             paramValue={conversation.id}
             socketUrl="/api/socket/direct-messages"
             socketQuery={{
-              conversationId: conversation.id
+              conversationId: conversation.id,
             }}
           />
           <ChatInput
@@ -81,11 +80,11 @@ const MemberIdPage = async ({
             type="conversation"
             apiUrl="/api/socket/direct-messages"
             query={{
-              conversationId: conversation.id
+              conversationId: conversation.id,
             }}
           />
-        </> */}
-      {/* )} */}
+        </>
+      )}
     </div>
   );
 };
