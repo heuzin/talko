@@ -20,7 +20,7 @@ const roleIconMap = {
   [MemberRole.ADMIN]: <ShieldAlert className="h-4 w-4 ml-2 text-rose-500" />,
 };
 
-const ServerMember: React.FC<ServerMemberProps> = ({ member, server }) => {
+const ServerMember: React.FC<ServerMemberProps> = ({ member }) => {
   const params = useParams();
   const router = useRouter();
 
